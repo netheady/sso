@@ -1,0 +1,60 @@
+{
+  "name": "sso",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2",
+    "npm": ">=2.12"
+  },
+  "scripts": {
+    "clean": "rimraf coverage",
+    "cov": "opener coverage/lcov-report/index.html",
+    "cov-check": "istanbul report && istanbul check-coverage",
+    "lint": "eslint --ignore-path .gitignore .",
+    "test": "npm run clean && npm run test-cov && npm run lint && npm run cov-check",
+    "test-cov": "istanbul cover --include-pid _mocha -- --recursive --reporter ${MOCHA_REPORTER:-spec} api/test",
+    "watch-test": "mocha --recursive -w api/test",
+    "api-test-cov": "istanbul cover --include-pid _mocha -- --recursive --reporter ${MOCHA_REPORTER:-spec} api/test",
+    "api-watch-test": "mocha --recursive -w api/test"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:360incentives/sso.git"
+  },
+  "bugs": {
+    "url": "https://github.com/360incentives/sso/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bunyan": "^1.8.1",
+    "bunyan-err-serializer": "http://reggie.360incentives.io:8083/package/bunyan-err-serializer/gte/0/lt/1",
+    "express": "^4.14.0",
+    "express-bunyan-logger": "^1.3.1",
+    "helmet": "^2.1.3",
+    "node-forge": "^0.6.42",
+    "node-rsa": "^0.4.2",
+    "path": "^0.12.7",
+    "rc": "^1.1.6",
+    "serve-favicon": "^2.3.0",
+    "stats": "http://reggie.360incentives.io:8083/package/stats/gte/0/lt/1",
+    "stats-middleware": "http://reggie.360incentives.io:8083/package/stats-middleware/gte/1/lt/2",
+    "uncaught-exception": "http://reggie.360incentives.io:8083/package/uncaught-exception/gte/2/lt/3",
+    "ursa": "^0.9.4",
+    "x509": "^0.2.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.5.0",
+    "eslint-config-base": "github:360incentives/eslint-config-base",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2",
+    "mocha-teamcity-reporter": "^1.1.1",
+    "opener": "^1.4.2",
+    "pre-commit": "^1.1.3",
+    "rimraf": "^2.5.4",
+    "supertest": "^2.0.0"
+  }
+}

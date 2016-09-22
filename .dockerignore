@@ -1,0 +1,8 @@
+.git
+Dockerfile
+.dockerignore
+awslabs
+.idea
+code-deploy
+coverage
+terraform
